@@ -7,19 +7,23 @@ public class countsot {
 
   public static void countSort(int[] arr, int min, int max) {
    //write your code here
+   // creating frequency arr and answer array
    int range = max - min +1;
    int[] farr = new int[range]; // frequency array
    int[] ans = new int[arr.length];
 
+   // collecting the frequencies
    for(int i =0; i<arr.length; i++){
        int val= arr[i];
        farr[val - min]++;
    }
 
+   // convert freq to psa
    for(int i=1; i< farr.length; i++){
        farr[i] += farr[i-1];
    }
 
+   // fill the answer
    for(int i= arr.length-1 ; i>=0; i--){
        int val = arr[i];
        int pos = farr[val -min];
@@ -27,6 +31,7 @@ public class countsot {
        farr[val-min]--;
    }
 
+   // fill the original array
    for(int i=0; i<arr.length; i++){
        arr[i] = ans[i];
    }
