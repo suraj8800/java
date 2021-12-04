@@ -3,7 +3,7 @@ package Linked_List;
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class add_first {
   public static class Node {
     int data;
     Node next;
