@@ -415,7 +415,7 @@ public class Reverse_Data_recursive {
     int b = Integer.parseInt(br.readLine());
 
     l1.display();
-    l1.reversePR();
+    l1.reverseDR();
     l1.addLast(a);
     l1.addFirst(b);
     l1.display();
