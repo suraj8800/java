@@ -1,7 +1,6 @@
 package Binary_Tree;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 //import java.lang.reflect.Constructor;
 import java.util.Stack;
