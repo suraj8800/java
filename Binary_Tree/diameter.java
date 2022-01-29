@@ -158,6 +158,7 @@ public class diameter {
   }
 
   public static DiaPair diameter4(Node node){
+      // approach 4.(diapair)
       if(node == null){
           DiaPair bp = new DiaPair();
           bp.height = -1;
