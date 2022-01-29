@@ -112,6 +112,29 @@ public class diameter {
     return height;
   }
 
+  static class DiaMover{
+      int dia = 0;
+  }
+
+  public static int diameter2(Node node, DiaMover dm){
+      // approach 2.(diamover)
+      
+      if(node == null){
+          return -1;
+      }
+
+      int lh = diameter2(node.left, dm);
+      int rh = diameter2(node.right, dm);
+
+      int ht = Math.max(lh, rh) + 1;
+
+      if(lh+rh+2 > dm.dia){
+          dm.dia = lh+rh+2;
+      }
+
+      return ht;
+  }
+
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int n = Integer.parseInt(br.readLine());
@@ -127,9 +150,13 @@ public class diameter {
 
     Node root = construct(arr);
 
-    int height = 0;
-    height = diameter1(root);
-    System.out.println(dia);
+    // int height = 0;
+    // height = diameter1(root);
+    // System.out.println(dia);
+
+    DiaMover dm = new DiaMover();
+    diameter2(root, dm);
+    System.out.println(dm.dia);
   }
 
 }
