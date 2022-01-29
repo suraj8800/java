@@ -169,7 +169,7 @@ public class diameter {
 
       DiaPair mp = new DiaPair();
       mp.dia = Math.max(lp.height + rp.height + 2, Math.max(lp.dia, rp.dia));
-      mp.height = Math.max(lp.height, rp.height);
+      mp.height = Math.max(lp.height, rp.height) +1 ;
 
       return mp;
   }
@@ -200,7 +200,8 @@ public class diameter {
     // int dia = diameter3(root);
     // System.out.println(dia);
 
-    
+    DiaPair dp = diameter4(root);
+    System.out.println(dp.dia);
   }
 
 }
