@@ -152,6 +152,28 @@ public class diameter {
       return diameter;
   }
 
+  static class DiaPair{
+      int height = -1;
+      int dia = 0;
+  }
+
+  public static DiaPair diameter4(Node node){
+      if(node == null){
+          DiaPair bp = new DiaPair();
+          bp.height = -1;
+          bp.dia = 0;
+          return bp;
+      }
+      DiaPair lp = diameter4(node.left);
+      DiaPair rp = diameter4(node.right);
+
+      DiaPair mp = new DiaPair();
+      mp.dia = Math.max(lp.height + rp.height + 2, Math.max(lp.dia, rp.dia));
+      mp.height = Math.max(lp.height, rp.height);
+
+      return mp;
+  }
+
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int n = Integer.parseInt(br.readLine());
@@ -175,8 +197,10 @@ public class diameter {
     // diameter2(root, dm);
     // System.out.println(dm.dia);
 
-    int dia = diameter3(root);
-    System.out.println(dia);
+    // int dia = diameter3(root);
+    // System.out.println(dia);
+
+    
   }
 
 }
