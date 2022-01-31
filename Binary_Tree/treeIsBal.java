@@ -101,6 +101,29 @@ public class treeIsBal {
 
       return ht;
   }
+
+  static class balPair {
+      int ht = -1;
+      boolean balanced = true;
+  }
+
+  public static balPair isBalanced1(Node node){
+      if(node == null){
+          balPair bp = new balPair();
+          return bp;
+      }
+
+      balPair lp = isBalanced1(node.left);
+      balPair rp = isBalanced1(node.right);
+
+      balPair myPair = new balPair();
+      myPair.ht = Math.max(lp.ht, rp.ht) + 1;
+
+      boolean nodeIsBal = Math.abs(lp.ht - rp.ht) <= 1;
+
+      myPair.balanced = (lp.balanced == true) && (rp.balanced == true) && (nodeIsBal == true);
+      return myPair;
+  }
   
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -116,8 +139,10 @@ public class treeIsBal {
     }
 
     Node root = construct(arr);
-    isBalanced(root);
-    System.out.println(treeIsBalanced);
+    // isBalanced(root);
+    // System.out.println(treeIsBalanced);
+    balPair balanced = isBalanced1(root);
+    System.out.println(balanced.balanced);
     
     // write your code here
   }
